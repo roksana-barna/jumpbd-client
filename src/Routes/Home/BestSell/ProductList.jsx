@@ -1,8 +1,10 @@
 
-import { Fragment, useState } from 'react'
+import { Fragment, useContext, useState } from 'react'
 import { Dialog, RadioGroup, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/20/solid'
+import { AuthContext } from '../../../AuthProvider/AuthProvider'
+
 
 const product = {
   name: 'Basic Tee 6-Pack ',
@@ -37,6 +39,8 @@ export default function Example() {
   const [open, setOpen] = useState(false)
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState(product.sizes[2])
+  const { user } = useContext(AuthContext);
+
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -87,7 +91,11 @@ export default function Example() {
                           Product information
                         </h3>
 
-                        <p className="text-2xl text-gray-900">{product.price}</p>
+
+                        {
+                          user ?<p className="text-2xl text-gray-900">{product.price}</p> :''
+
+                        }
 
                         {/* Reviews */}
                         <div className="mt-6">

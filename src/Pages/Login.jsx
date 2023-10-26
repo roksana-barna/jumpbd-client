@@ -79,7 +79,7 @@ const Login = () => {
                       <input className="btn bg-cyan-600 text-white" type="submit" value="Login" />
                     </div>
                   </form>
-                  <p className='mb-6'><small className='text-blue-900 pl-8  mt-2'>New To Dropzey?? <button className='bg-cyan-500 text-white px-4 py-1 '><Link to="/register">Register</Link></button></small></p>
+                  <p className='mb-6'><small className='text-blue-900 pl-8  mt-2'>New To jump bd?? <button className='bg-cyan-500 text-white px-4 py-1 '><Link to="/register">Register</Link></button></small></p>
 
                 </div>
               </div>

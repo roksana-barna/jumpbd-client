@@ -113,7 +113,7 @@ const Navbar = () => {
             </ul>
           </div>
           <img className='w-24 h-24' src={logo} alt="" />
-          <a className=" normal-case text-3xl text-cyan-600">Dropzey</a>
+          <a className=" normal-case text-3xl text-cyan-600">Jump BD</a>
         </div>
         <form className='text-center p-5'>
           <input type='text' placeholder='Enter Your Keyword' name='search'
