@@ -32,14 +32,21 @@ const Dashboard = () => {
                                     <FaDesktop /> Home
                                 </Link>
                             </li>
-                            <li>
-                                <Link to='/dashboard/orders' className='text-cyan-800 text-lg bg-transparent hover:bg-red-400'>
-                                    <FaDesktop /> Orders
-                                </Link>
-                            </li>
+                           
                             <li>
                                 <Link to='/dashboard/addproducts' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
                                     <FaDesktop /> Products  </Link>
+                            </li>
+                            <li>
+                                <Link to='/dashboard/managecustomers' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
+                                    <FaDesktop /> Manage Customers
+                                </Link>
+                            </li>
+                            <li>
+                            
+                                <Link to='/dashboard/orders' className='text-cyan-800 text-lg bg-transparent hover:bg-red-400'>
+                                    <FaDesktop /> Orders
+                                </Link>
                             </li>
                             <li>
                                 <Link to='/dashboard/customers' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>

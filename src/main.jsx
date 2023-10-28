@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import Main from './Main/Main.jsx'
 import Home from './Routes/Home/Home.jsx'
-import Register from './Pages/Register.jsx'
 import Login from './Pages/Login.jsx'
 import AuthProvider from './AuthProvider/AuthProvider.jsx'
 import Dashboard from './Layout/Dashboard/Dashboard.jsx'
@@ -17,6 +16,10 @@ import Settings from './Layout/Dashboard/Settings/Settings.jsx'
 import AddProduct from './Components/AddProduct/AddProduct.jsx'
 import AllCollection from './Pages/AllCollection/AllCollection.jsx'
 import WomensFashion from './Pages/AllCollection/WomensFashion/WomensFashion.jsx'
+import Register2 from './Pages/Register2/Register2.jsx'
+import Register3 from './Pages/Register2/Register3.jsx'
+import Register4 from './Pages/Register2/Register4.jsx'
+import Register from './Pages/Register.jsx'
 
 const router = createBrowserRouter([
   {
@@ -48,6 +51,21 @@ const router = createBrowserRouter([
       {
         path: '/womens-fashion',
         element:<WomensFashion></WomensFashion>
+      },
+     
+      {
+        path: '/register2',
+        element:<Register2></Register2>
+      },
+      {
+        path: '/register3',
+        element:<Register3></Register3>
+
+      },
+      {
+        path: '/register4',
+        element:<Register4></Register4>
+        
       },
 
     ]

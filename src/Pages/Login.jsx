@@ -12,7 +12,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const from = location.state?.from?.pathname || "/";
+    const from = location.state?.from?.pathname || "/register2";
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = data => {

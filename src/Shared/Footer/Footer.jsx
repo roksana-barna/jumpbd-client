@@ -93,8 +93,6 @@ const Footer = () => {
                     Copyright © 2023 <span className='text-cyan-600'>Dropzey </span>       </a>
             </div>
             <div className="mt-8 text-center text-sm">
-                <p>HOT KEYWORDS:</p>
-                <p>iPhone X Tablet iPad 3 MP3 Player Iphoneo 7 Plus Lady Sexy Women's Shoe Backpacks Samsung Galaxy Note 8 Sonyo TV Samsing TV LGG TV Toshibao TV Philipsi TV Micromaxo TV LED TV LCD TV Plasma TV 3D TV Smart TV Oled TV 6k Samsung Galaxy Note 8 Samsung Galaxy S8+ iPhone 8 iPhone 8 Plus Google Pixel S Soby XZ3 LG V30 Oppo X5 Optimus V3 BBZ30 Macbook Pro 2017 Macbook Retina 3k iMac 4k Sony Vaio Z3 LG Optimus Sony Vaio Z10 Asus Pro 500 Lenovo Pro 8x HP Probook Dell M2 Acer V6 Apple iWatch Series 1 Apple iWatch Series 2 Shoes Gas Shoes Puma Shoes Reebok Shoes Woodland Shoes Red tape Shoes Nike Shoes</p>
             </div>
         </footer>
     );

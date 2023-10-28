@@ -32,7 +32,7 @@ const firebaseConfig = {
   storageBucket: "jump-bd.appspot.com",
   messagingSenderId: "894593599056",
   appId: "1:894593599056:web:29b085e6ba15454d373355",
-  measurementId: "G-SD1CQ85Y86"
+  measurementId: "G-SD1CQ85Y86",
 };
 
 // Initialize Firebase
