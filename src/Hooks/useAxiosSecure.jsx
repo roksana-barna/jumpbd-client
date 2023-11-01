@@ -5,7 +5,7 @@ import useAuth from './useAuth';
 
 const axiosSecure = axios.create({
   // baseURL: 'https://b7a12-summer-camp-server-side-roksana-barna.vercel.app', 
-    baseURL: 'http://localhost:5000', 
+    baseURL: 'https://dropzey-server.vercel.app', 
 
 });
 

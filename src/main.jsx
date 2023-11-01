@@ -20,6 +20,9 @@ import Register2 from './Pages/Register2/Register2.jsx'
 import Register3 from './Pages/Register2/Register3.jsx'
 import Register4 from './Pages/Register2/Register4.jsx'
 import Register from './Pages/Register.jsx'
+import ManageCustomer from './Layout/Dashboard/AdminDashboard/ManageCustomer.jsx'
+
+
 
 const router = createBrowserRouter([
   {
@@ -46,61 +49,86 @@ const router = createBrowserRouter([
       },
       {
         path: '/allcollection',
-        element:<AllCollection></AllCollection>
+        element: <AllCollection></AllCollection>
       },
       {
         path: '/womens-fashion',
-        element:<WomensFashion></WomensFashion>
+        element: <WomensFashion></WomensFashion>
       },
-     
+
       {
         path: '/register2',
-        element:<Register2></Register2>
+        element: <Register2></Register2>
       },
       {
         path: '/register3',
-        element:<Register3></Register3>
+        element: <Register3></Register3>
 
       },
       {
         path: '/register4',
-        element:<Register4></Register4>
-        
+        element: <Register4></Register4>
+
+      },
+      {
+        path: '/profile',
+        element: <Profile></Profile>
+
       },
 
     ]
   },
   {
-    path:'dashboard',
-    element:<Dashboard></Dashboard>,
-    children:[
+    path: 'dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
+
       {
-      path:'mycart',
-      element:<MyCart></MyCart>
+        path: 'mycart',
+        element: <MyCart></MyCart>,
+      },
+
+
+      {
+        path: 'addproducts',
+        element: <AddProduct></AddProduct>,
       },
       {
-        path:'addproducts',
-        element:<AddProduct></AddProduct>
-        },
+        path: 'managecustomer',
+        element: <ManageCustomer></ManageCustomer>,
+      },
+      {
+        path: 'subscriptions',
+        element: <Subscriptions></Subscriptions>
+      },
+      {
+        path: 'client',
+        element: <ClientDashboard></ClientDashboard>
+      },
 
-     
+
     ]
-   },
-   {
-    path:'/dashboard/settings',
-    element:<Settings></Settings>
-    }
+  },
+  {
+    path: '/dashboard/settings',
+    element: <Settings></Settings>
+  }
 
 ]);
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Subscriptions from './Layout/Dashboard/AdminDashboard/Subcriptions/Subscriptions.jsx'
+import Profile from './Components/Profile/Profile.jsx'
+import ClientDashboard from './Layout/Dashboard/ClientDashboard/ClientDashboard.jsx'
 
+const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-
-      <div className='max-w-6xl mx-auto'>
-        <RouterProvider router={router} />
-
-      </div>
+      <QueryClientProvider client={queryClient}>
+        <div className='max-w-6xl mx-auto'>
+          <RouterProvider router={router} />
+        </div>
+      </QueryClientProvider>
     </AuthProvider>
 
   </React.StrictMode>,

@@ -22,7 +22,7 @@ const AddProduct = () => {
     const toys = { name, pictureUrl, sellerName, email, category, price, rating, quantity, description };
     console.log(toys);
     form.reset();
-    fetch('https://dropzey-server.vercel.app/addproducts', {
+    fetch('https:localhost:5000/addproducts', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

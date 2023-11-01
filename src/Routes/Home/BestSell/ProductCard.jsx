@@ -1,3 +1,5 @@
+import useSubscriptions from "../../../Hooks/useSubscriptions"
+
 /*
   This example requires some changes to your config:
   
@@ -57,6 +59,8 @@ const products = [
 ]
 
 export default function Example() {
+const [subscription]=useSubscriptions();
+
   return (
     <div className="bg-white text-center">
       <p className="text-cyan-600 text-2xl font-semibold">Best Selling Products</p>
@@ -75,7 +79,11 @@ export default function Example() {
                 />
               </div>
               <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
+              {
+                subscription &&
+                <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
+
+              }
             </a>
           ))}
         </div>

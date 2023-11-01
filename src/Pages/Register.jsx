@@ -6,18 +6,20 @@ import { FaHandPointRight } from 'react-icons/fa';
 import './style.css';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import useSubscriptions from '../Hooks/useSubscriptions';
 
 // import Swal from 'sweetalert2';
 // import { AuthContext } from '../../AuthProvider';
 // import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 const Register = () => {
+  const [subscription]=useSubscriptions();
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
-    defaultValues: {
-    }
+   
   });
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
   const onSubmit = data => {
+    const user_email = data.email;
 
     createUser(data.email, data.password)
       .then(result => {
@@ -27,7 +29,7 @@ const Register = () => {
 
         updateUserProfile(data.name, data.photoURL)
           .then(() => {
-            const saveUser = { fname: data.fName, lname: data.lName, email: data.email, photoURL: data.photoURL, subscriptionFee: data.subscriptionFee, couponCode: data.couponCode, nidNumber: data.nidNumber, nidFrontPart: data.nidFrontPart, nidBackPart: data.nidBackPart }
+            const saveUser = { name: data.name, email: data.email, photoURL: data.photoURL, subscriptionFee: data.subscriptionFee, couponCode: data.couponCode, nidNumber: data.nidNumber, nidFrontPart: data.nidFrontPart, nidBackPart: data.nidBackPart }
             fetch('https://dropzey-server.vercel.app/users', {
               method: 'POST',
               headers: {
@@ -38,6 +40,7 @@ const Register = () => {
               .then(res => res.json())
               .then(data => {
                 if (data.insertedId) {
+                 subscription.role==='client'
                   reset();
                   Swal.fire({
                     position: 'top-end',
@@ -46,9 +49,15 @@ const Register = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
-                  navigate('/register2');
+                  localStorage.setItem("usr_email" , user_email);
+                  navigate('/') || navigate('register2');
+
                 }
+              
+               
+
               })
+             
           })
           .catch(error => console.log(error))
       })
@@ -66,23 +75,14 @@ const Register = () => {
           <div className="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
             <form className="card-body bg-base-200 " onSubmit={handleSubmit(onSubmit)} >
               <h1 className='text-center font-bold text-xl uppercase'>Create Account</h1>
-              <div className='flex gap-2'>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text"> First Name</span>
+                    <span className="label-text"> Name</span>
                   </label>
-                  <input type="text"  {...register("fname", { required: true })} name="fname" placeholder="First Name" className="input input-bordered" />
+                  <input type="text"  {...register("name", { required: true })} name="name" placeholder=" Name" className="input input-bordered" />
                   {errors.name && <span className="text-red-600">Name is required</span>}
                 </div>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text"> Last Name</span>
-                  </label>
-                  <input type="text"  {...register("lname", { required: true })} name="lname" placeholder=" Last Name" className="input input-bordered" />
-                  {errors.name && <span className="text-red-600">Name is required</span>}
-                </div>
-              </div>
-              <div className='flex gap-2'>
+                
 
                 <div className="form-control">
                   <label className="label">
@@ -107,7 +107,6 @@ const Register = () => {
 
                 </div>
 
-              </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text"> Confirm Password</span>
@@ -121,14 +120,16 @@ const Register = () => {
                 {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
                 {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase,One Special Character</p>}
 
-                {/* <div className="form-control">
-//                                 <label className="label">
-//                                     <span className="label-text">Photo URL</span>
-//                                 </label>
-//                                 <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
-//                                 {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
-//                             </div> */}
+                {/*  */}
               </div>
+              <div className="form-control">
+                                <label className="label">
+                                     <span className="label-text">Photo URL</span>
+                                </label>
+                                 <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
+                                 {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
+                           </div>
+
               {/* <div className="form-control">
                                 <label className="label">
                   <span className="label-text text-gray-700">Subscription Fee:</span>
@@ -259,7 +260,6 @@ const Register = () => {
             </form>
             <div className='flex gap-2'>
             <p className='mb-6'><small className='text-blue-900 pl-8  mt-4'>Already have an account?? <button className='bg-cyan-500 text-white px-4 py-1 '><Link to="/login">Login</Link></button></small></p>
-            <Link to='/register2'>Go For Subscription <button className=' px-2 py-1 text-red-400 italic font-bold'>Next</button></Link>
             </div>
           </div>
         </div>

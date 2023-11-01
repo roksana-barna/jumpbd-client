@@ -6,6 +6,8 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+
+  
   const handleLogOut = () => {
     logOut()
       .then(() => { })
@@ -86,7 +88,7 @@ const Navbar = () => {
 
     {
       user ? <>
-        <img className='w-10 h-10 rounded-2xl' src={user.photoURL} alt="" />
+       <Link to='/profile'> <img  className='w-10 h-10 ml-2 mr-2 rounded-2xl' src={user.photoURL} alt="" /></Link>
         <button onClick={handleLogOut} className=" text-white px-3 font-bold mr-2  rounded-xl bg-cyan-600">Logout</button>
       </> : <>
         <li><Link to="/login" className=" ml-5 text-white px-5 bg-cyan-600 mr-3">Login</Link></li>

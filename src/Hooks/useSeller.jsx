@@ -6,7 +6,7 @@ const useSeller = () => {
     const {user, loading} = useAuth();
     const [axiosSecure] = useAxiosSecure();
     const {data: isSeller, isLoading: isSellerLoading} = useQuery({
-        queryKey: ['isInstructor', user?.email],
+        queryKey: ['isSeller', user?.email],
 
         enabled: !loading,
         queryFn: async () => {
