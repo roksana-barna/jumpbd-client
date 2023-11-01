@@ -80,7 +80,7 @@ const router = createBrowserRouter([
   },
   {
     path: 'dashboard',
-    element: <Dashboard></Dashboard>,
+    element:<PrivateRoute> <Dashboard></Dashboard></PrivateRoute>,
     children: [
 
       {
@@ -105,6 +105,30 @@ const router = createBrowserRouter([
         path: 'client',
         element: <ClientDashboard></ClientDashboard>
       },
+      {
+        path: 'orders',
+        element: <Orders></Orders>
+      },
+      {
+        path: 'wishlist',
+        element:<WishList></WishList>
+      },
+      {
+        path: 'orders/:orderId',
+        element:<OrderDetails></OrderDetails>
+      },
+      {
+        path: 'ratings',
+        element:<Ratings></Ratings>
+      },
+      {
+        path: 'accountsettings',
+        element:<AccountSettings></AccountSettings>
+      },
+      {
+        path: 'contactsupport',
+        element:<ContactSupport></ContactSupport>
+      },
 
 
     ]
@@ -119,6 +143,13 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Subscriptions from './Layout/Dashboard/AdminDashboard/Subcriptions/Subscriptions.jsx'
 import Profile from './Components/Profile/Profile.jsx'
 import ClientDashboard from './Layout/Dashboard/ClientDashboard/ClientDashboard.jsx'
+import PrivateRoute from './Routes/PrivateRoute.jsx'
+import Orders from './Layout/Dashboard/ClientDashboard/Orders/Orders.jsx'
+import WishList from './Layout/Dashboard/ClientDashboard/WishList.jsx'
+import OrderDetails from './Layout/Dashboard/ClientDashboard/OderDetails/OrderDetails.jsx'
+import Ratings from './Layout/Dashboard/ClientDashboard/Ratings/Ratings.jsx'
+import AccountSettings from './Layout/Dashboard/ClientDashboard/Settings/AccountSettings.jsx'
+import ContactSupport from './Layout/Dashboard/ClientDashboard/ContactSupport/ContactSupport.jsx'
 
 const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root')).render(

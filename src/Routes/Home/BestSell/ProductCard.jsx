@@ -12,8 +12,10 @@ import useSubscriptions from "../../../Hooks/useSubscriptions"
       require('@tailwindcss/aspect-ratio'),
     ],
   }
-  ```
+  ```const [subscription]=useSubscriptions();
+
 */
+
 const products = [
   {
     id: 1,
@@ -59,7 +61,7 @@ const products = [
 ]
 
 export default function Example() {
-const [subscription]=useSubscriptions();
+  const [subscription]=useSubscriptions();
 
   return (
     <div className="bg-white text-center">
@@ -80,8 +82,9 @@ const [subscription]=useSubscriptions();
               </div>
               <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
               {
-                subscription &&
-                <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>
+                subscription ?
+                <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>  :""
+                
 
               }
             </a>

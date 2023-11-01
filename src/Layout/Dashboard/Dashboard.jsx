@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
-import { FaHome, FaPeopleArrows, FaOdnoklassniki, FaDesktop, FaCog, FaAngleRight, FaShoppingCart, FaTable } from 'react-icons/fa';
+import { FaHome, FaPeopleArrows, FaOdnoklassniki, FaDesktop, FaCog, FaAngleRight, FaShoppingCart, FaTable, FaArrowCircleRight } from 'react-icons/fa';
 import useAdmin from '../../Hooks/useAdmin';
 import useSeller from '../../Hooks/useSeller';
 import useSubscriptions from '../../Hooks/useSubscriptions';
@@ -178,8 +178,8 @@ const Dashboard = () => {
                             <>
                                 <li><Link className='bg-red-700 text-center text-lg text-white'>CLients Dashboard</Link></li>
                                 <div className="divider"></div>
-                                <li className='text-blue-800 text-lg bg-transparent font-bold' >
-                                    <Link to="/dashboard/client">Client Info</Link> <FaDesktop />
+                                <li className='text-blue-800 text-md bg-transparent font-bold' >
+                                    <Link to="/dashboard/client"> Explore Clients Gallery<FaArrowCircleRight></FaArrowCircleRight></Link>
                                 </li>
                             </>
                         }
