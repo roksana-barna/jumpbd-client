@@ -7,12 +7,12 @@ const Subscriptions = () => {
 
     const [subscriptions, setSubcriptions] = useState([]);
     useEffect(() => {
-        fetch('https://dropzey-server.vercel.app/subscriptions')
+        fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/subscriptions')
             .then(res => res.json())
             .then(data => setSubcriptions(data))
     }, [])
     const handleMakeclient = user => {
-        fetch(`https://dropzey-server.vercel.app/subscriptions/client/${user._id}`, {
+        fetch(`https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/subscriptions/client/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -30,7 +30,7 @@ const Subscriptions = () => {
             })
     }
     const handleMakeDenied = user => {
-        fetch(`https://dropzey-server.vercel.app/subscriptions/denied/${user._id}`, {
+        fetch(`https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/subscriptions/denied/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

@@ -30,7 +30,7 @@ const Register = () => {
         updateUserProfile(data.name, data.photoURL)
           .then(() => {
             const saveUser = { name: data.name, email: data.email, photoURL: data.photoURL, subscriptionFee: data.subscriptionFee, couponCode: data.couponCode, nidNumber: data.nidNumber, nidFrontPart: data.nidFrontPart, nidBackPart: data.nidBackPart }
-            fetch('https://dropzey-server.vercel.app/users', {
+            fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/users', {
               method: 'POST',
               headers: {
                 'content-type': 'application/json'
@@ -122,13 +122,13 @@ const Register = () => {
 
                 {/*  */}
               </div>
-              <div className="form-control">
+              {/* <div className="form-control">
                                 <label className="label">
                                      <span className="label-text">Photo URL</span>
                                 </label>
                                  <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
                                  {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
-                           </div>
+                           </div> */}
 
               {/* <div className="form-control">
                                 <label className="label">

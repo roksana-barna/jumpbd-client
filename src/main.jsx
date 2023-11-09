@@ -52,6 +52,25 @@ const router = createBrowserRouter([
         element: <AllCollection></AllCollection>
       },
       {
+        path: '/all',
+        element: <All></All>
+      },
+      {
+        path: '/addtocart/:id',
+        element: <AddToCart></AddToCart>,
+        loader:({params})=>fetch(`https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/addtocart/${params.id}`)
+
+      },
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
+        loader: ({ params }) => fetch(`https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/update/${params.id}`)
+      },
+      {
+        path: '/product-category/:category',
+        element: <CategoryProductsPage></CategoryProductsPage>
+      },
+      {
         path: '/womens-fashion',
         element: <WomensFashion></WomensFashion>
       },
@@ -75,6 +94,7 @@ const router = createBrowserRouter([
         element: <Profile></Profile>
 
       },
+      
 
     ]
   },
@@ -106,15 +126,16 @@ const router = createBrowserRouter([
         element: <ClientDashboard></ClientDashboard>
       },
       {
-        path: 'orders',
+        path: 'ordersforadmin',
         element: <Orders></Orders>
       },
+     
       {
         path: 'wishlist',
         element:<WishList></WishList>
       },
       {
-        path: 'orders/:orderId',
+        path: 'orders',
         element:<OrderDetails></OrderDetails>
       },
       {
@@ -122,7 +143,7 @@ const router = createBrowserRouter([
         element:<Ratings></Ratings>
       },
       {
-        path: 'accountsettings',
+        path: 'profile',
         element:<AccountSettings></AccountSettings>
       },
       {
@@ -150,6 +171,10 @@ import OrderDetails from './Layout/Dashboard/ClientDashboard/OderDetails/OrderDe
 import Ratings from './Layout/Dashboard/ClientDashboard/Ratings/Ratings.jsx'
 import AccountSettings from './Layout/Dashboard/ClientDashboard/Settings/AccountSettings.jsx'
 import ContactSupport from './Layout/Dashboard/ClientDashboard/ContactSupport/ContactSupport.jsx'
+import CategoryProductsPage from './Routes/Home/AllProductCollection/CategoryProductPage.jsx'
+import All from './Routes/Home/All.jsx'
+import AddToCart from './Routes/Home/AddToCart/AddToCart.jsx'
+import Update from './Components/Profile/Update.jsx'
 
 const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root')).render(

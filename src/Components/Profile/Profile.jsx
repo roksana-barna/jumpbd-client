@@ -1,36 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios'; // You may need to install axios
+import React, { useContext, useEffect, useState } from 'react';
+import ProfileCard from './ProfileCard';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Profile = () => {
-  const { userId } = useParams();
-  const [user, setUser] = useState(null);
+  const { user } = useContext(AuthContext);
+  const [myProfile, setMyProfile] = useState([])
 
   useEffect(() => {
-    // Fetch user-specific data using the provided userId
-    axios.get(`https://dropzey-server.vercel.app/subscriptions/${userId}`)
-      .then((response) => {
-        setUser(response.data);
+    fetch(`https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/subscriptions/${user?.email}`)
+      .then(res => res.json())
+      .then(data => {
+        setMyProfile(data)
       })
-      .catch((error) => {
-        console.error('Error fetching user data:', error);
-      });
-  }, [userId]);
 
-  if (!user) {
-    return <p>Loading...</p>;
-  }
+  }, [user]);
 
-  if (userId !== user.id) {
-    return <p>You are not authorized to view this profile.</p>;
-  }
 
   return (
     <div>
-      <h1>User Profile</h1>
-      <p>Name: {user.name}</p>
-      <p>Email: {user.email}</p>
-      {/* Display additional user-specific data here */}
+     
+       {
+        myProfile.length > 0 && (
+          <ProfileCard
+            profile={myProfile[0]} // Assuming you want to display the first profile in the array
+          />
+        )
+      }
+
     </div>
   );
 };

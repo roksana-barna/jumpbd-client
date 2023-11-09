@@ -138,8 +138,8 @@ const Register3 = () => {
 
               </form>
                 <div className='justify-between mt-5 mb-10 flex gap-3'>
-                    <Link to='/register' ><btton className='bg-cyan-700 px-4 py-1 text-white'>Back</btton></Link>
-                    <Link to='/register4' ><btton className='bg-cyan-700 px-4 py-1 text-white'>Next</btton></Link>
+                    <Link to='/register' ><button className='bg-cyan-700 px-4 py-1 text-white'>Back</button></Link>
+                    <Link to='/register4' ><button className='bg-cyan-700 px-4 py-1 text-white'>Next</button></Link>
 
 
                 </div>

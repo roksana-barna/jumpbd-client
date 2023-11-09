@@ -54,20 +54,21 @@ const products = [
     name: 'Machined Mechanical Pencil',
     href: '#',
     price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
+    imageSrc: 'https://img.freepik.com/free-vector/vector-fountain-writing-pen-contract-signing_1284-41915.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1699401600&semt=sph',
     imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
   },
   // More products...
 ]
 
+
+
 export default function Example() {
-  const [subscription]=useSubscriptions();
 
   return (
     <div className="bg-white text-center">
-      <p className="text-cyan-600 text-2xl font-semibold">Best Selling Products</p>
+      <p className="text-cyan-600 text-xl md:mt-24 font-semibold font-serif">Best Selling Products</p>
      
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-2xl px-4  sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="sr-only">Products</h2>
 
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-x-8">
@@ -81,12 +82,7 @@ export default function Example() {
                 />
               </div>
               <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-              {
-                subscription ?
-                <p className="mt-1 text-lg font-medium text-gray-900">{product.price}</p>  :""
-                
-
-              }
+             
             </a>
           ))}
         </div>

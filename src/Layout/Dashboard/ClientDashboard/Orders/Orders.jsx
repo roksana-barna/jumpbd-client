@@ -1,70 +1,54 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import OrdersTable from './OrdersTable';
 
-function Orders() {
-  // Simulated order data
+const Order = () => {
   const [orders, setOrders] = useState([]);
 
-  // Simulated order tracking data
-  const [orderTracking, setOrderTracking] = useState({});
-
-  // Fetch orders from your server or API
   useEffect(() => {
-    // Replace this with your actual data fetching logic
-    const fetchOrders = async () => {
-      try {
-        const response = await fetch('your-api-endpoint/orders');
-        const data = await response.json();
+    // Fetch orders from your API or database
+    fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/orders') // Replace with the actual API endpoint
+      .then((res) => res.json())
+      .then((data) => {
         setOrders(data);
-      } catch (error) {
-        console.error('Error fetching orders: ', error);
-      }
-    };
-
-    fetchOrders();
+      });
   }, []);
 
-  // Function to track an order
-  const trackOrder = async (orderId) => {
-    try {
-      // Replace with your actual order tracking logic
-      const response = await fetch(`your-api-endpoint/track-order/${orderId}`);
-      const data = await response.json();
-      setOrderTracking({ ...orderTracking, [orderId]: data });
-    } catch (error) {
-      console.error('Error tracking order: ', error);
-    }
-  };
-
   return (
-    <div className="container mx-auto mt-8">
-      <h1 className="text-3xl font-semibold mb-4 ml-10">Your Orders</h1>
-      <div className="grid grid-cols-1 gap-4">
-        {orders.map((order) => (
-          <div key={order.id} className="bg-white p-4 rounded-lg shadow">
-            <div className="flex justify-between items-center mb-2">
-              <span className="text-xl font-semibold">Order #{order.id}</span>
-              <button
-                className="bg-blue-500 text-white px-4 py-1 rounded-lg"
-                onClick={() => trackOrder(order.id)}
-              >
-                Track Order
-              </button>
+    <div className='w-9/12 mx-auto'>
+            <div >
+                <h2 className='text-xl text-teal-600 text-center font-bold my-6'>All Orders</h2>
             </div>
-            <p>Order Date: {order.orderDate}</p>
-            <p>Total Amount: ${order.totalAmount}</p>
-            {orderTracking[order.id] && (
-              <div className="mt-4">
-                <h2 className="text-lg font-semibold">Order Status:</h2>
-                <p>{orderTracking[order.id].status}</p>
-                <p>Estimated Delivery: {orderTracking[order.id].estimatedDelivery}</p>
-                {/* You can add more tracking details here */}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+            
+            <div>
+                <div className="">
+                    <table className="table w-full">
+                        <thead>
+                            <tr>
+                                <th> picture</th>
+                                <th>Client Name</th>
+                                <th>Client email</th>
+                                <th>Products</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                              
+                            </tr>
+                        </thead>
+                        <tbody>
+                    {
+                        orders.map(mytoy => <OrdersTable
+                            key={mytoy._id}
+                            mytoy={mytoy}
+                        >
 
-export default Orders;
+                        </OrdersTable>)
+                    }
+                    </tbody>
+                    </table>
+
+                </div>
+            </div >
+        </div>
+  );
+};
+
+export default Order;

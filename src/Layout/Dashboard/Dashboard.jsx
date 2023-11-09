@@ -33,11 +33,6 @@ const Dashboard = () => {
                                 <li><Link className='bg-red-700 text-center text-white'>Admin Panel</Link></li>
                                 <div className="divider"></div>
 
-                                <li>
-                                    <Link to='/' className='text-cyan-800 text-lg bg-transparent hover:bg-red-400'>
-                                        <FaDesktop /> Home
-                                    </Link>
-                                </li>
 
                                 <li>
                                     <Link to='/dashboard/addproducts' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
@@ -50,7 +45,7 @@ const Dashboard = () => {
                                 </li>
                                 <li>
 
-                                    <Link to='/dashboard/orders' className='text-cyan-800 text-lg bg-transparent hover:bg-red-400'>
+                                    <Link to='/dashboard/ordersforadmin' className='text-cyan-800 text-lg bg-transparent hover:bg-red-400'>
                                         <FaDesktop /> Orders
                                     </Link>
                                 </li>
@@ -97,6 +92,12 @@ const Dashboard = () => {
                                     </Link>
                                     <Link to='/dashboard/settings' className='text-cyan-800 text-lg bg-transparent hover:bg-red-400'>
                                         <FaCog /> Settings
+                                    </Link>
+                                </li>
+                                
+                                <li>
+                                    <Link to='/' className='text-cyan-800 text-lg bg-transparent hover:bg-red-400'>
+                                        <FaDesktop /> Home
                                     </Link>
                                 </li>
 
