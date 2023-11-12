@@ -28,7 +28,7 @@ const Update = () => {
         }
         console.log(updatetoys)
     
-      fetch(`https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/update/${loadedprofile._id}`, {
+      fetch(`http://localhost:5000/update/${loadedprofile._id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'

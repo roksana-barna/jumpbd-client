@@ -30,7 +30,7 @@ const Register = () => {
         updateUserProfile(data.name, data.photoURL)
           .then(() => {
             const saveUser = { name: data.name, email: data.email, photoURL: data.photoURL, subscriptionFee: data.subscriptionFee, couponCode: data.couponCode, nidNumber: data.nidNumber, nidFrontPart: data.nidFrontPart, nidBackPart: data.nidBackPart }
-            fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/users', {
+            fetch('http://localhost:5000/users', {
               method: 'POST',
               headers: {
                 'content-type': 'application/json'

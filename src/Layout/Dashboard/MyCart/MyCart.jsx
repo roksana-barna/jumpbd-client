@@ -20,7 +20,7 @@ function MyCart() {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen py-16 w-[900px]">
+    <div className="bg-gradient-to-r from-blue-500 to-purple-500 min-h-screen py-16 md:w-[900px] sm:px-3">
       <div className="container mx-auto text-center ">
         <h1 className="text-4xl font-bold mb-4 text-white">Welcome to our Dropshipping Store</h1>
         <p className="text-xl mb-8 text-white">Discover the latest trends in fashion, electronics, and home decor.</p>

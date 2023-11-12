@@ -13,7 +13,7 @@ const CategoryProductPage = () => {
 
   useEffect(() => {
     // Fetch products from the backend and filter by the selected category
-    fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/addproducts')
+    fetch('http://localhost:5000/addproducts')
       .then((response) => response.json())
       .then((data) => {
         const filteredProducts = data.filter((product) => product.category === category);
@@ -78,8 +78,21 @@ const CategoryProductPage = () => {
               <div className="card-body items-center text-center bg-teal-100">
                 <h2 className="card-title font-serif">Name: {product.name}</h2>
                 <h5>Quantity: {product.quantity}</h5>
-                {isClient && <p>Price: {product.price}</p>}
-                {isAdmin && <p>Price: {product.price}</p>}
+                {isClient &&
+               <>
+                <p>Price: {product.price}</p>
+                 <p> Suggest Minimum Price: {product.suggestprice}</p>
+                 
+               </>
+                }
+                {isAdmin && 
+                 <>
+                 <p>Price: {product.price}</p>
+                  <p> Suggest Minimum Price: {product.suggestprice}</p>
+                  
+                </>
+                
+                }
 
               </div>
               </Link>

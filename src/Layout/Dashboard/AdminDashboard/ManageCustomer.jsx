@@ -9,13 +9,13 @@ const ManageCustomer = () => {
 
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/users')
+        fetch('http://localhost:5000/users')
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [])
 
     // const handleMakeAdmin = user => {
-    //     fetch(`https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/users/admin/${user._id}`, {
+    //     fetch(`http://localhost:5000/users/admin/${user._id}`, {
     //         method: 'PATCH'
     //     })
     //         .then(res => res.json())
@@ -33,7 +33,7 @@ const ManageCustomer = () => {
     //         })
     // }
     const handleMakeInstructor = user => {
-        fetch(`https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/users/seller/${user._id}`, {
+        fetch(`http://localhost:5000/users/seller/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

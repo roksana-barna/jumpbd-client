@@ -58,13 +58,18 @@ const router = createBrowserRouter([
       {
         path: '/addtocart/:id',
         element: <AddToCart></AddToCart>,
-        loader:({params})=>fetch(`https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/addtocart/${params.id}`)
+        loader:({params})=>fetch(`http://localhost:5000/addtocart/${params.id}`)
 
       },
       {
         path: "/update/:id",
         element: <Update></Update>,
-        loader: ({ params }) => fetch(`https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/update/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/update/${params.id}`)
+      },
+      {
+        path: "/updateproduct/:id",
+        element: <UpdateProduct></UpdateProduct>,
+        loader: ({ params }) => fetch(`http://localhost:5000/updateproduct/${params.id}`)
       },
       {
         path: '/product-category/:category',
@@ -73,6 +78,12 @@ const router = createBrowserRouter([
       {
         path: '/womens-fashion',
         element: <WomensFashion></WomensFashion>
+      },
+      {
+        path: '/orderedproductdetails/:id',
+        element: <OrderedProductDetails></OrderedProductDetails>,
+        loader:({params})=>fetch(`http://localhost:5000/orderedproductdetails/${params.id}`)
+
       },
 
       {
@@ -112,6 +123,10 @@ const router = createBrowserRouter([
       {
         path: 'addproducts',
         element: <AddProduct></AddProduct>,
+      },
+      {
+        path: 'ourproducts',
+        element: <AllAddedProducts></AllAddedProducts>,
       },
       {
         path: 'managecustomer',
@@ -175,6 +190,9 @@ import CategoryProductsPage from './Routes/Home/AllProductCollection/CategoryPro
 import All from './Routes/Home/All.jsx'
 import AddToCart from './Routes/Home/AddToCart/AddToCart.jsx'
 import Update from './Components/Profile/Update.jsx'
+import AllAddedProducts from './Layout/Dashboard/AdminDashboard/AllAddedProducts.jsx'
+import UpdateProduct from './Layout/Dashboard/AdminDashboard/AllProductsTable/UpdateProduct.jsx'
+import OrderedProductDetails from './Layout/Dashboard/AdminDashboard/OrederedProductDEtails/OrderedProductDetails.jsx'
 
 const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root')).render(

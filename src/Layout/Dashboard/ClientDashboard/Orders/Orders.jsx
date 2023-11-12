@@ -1,54 +1,138 @@
+// import React, { useEffect, useState } from 'react';
+
+// const Orders = () => {
+//   const [orders, setOrders] = useState([]);
+
+//   useEffect(() => {
+//     // Fetch orders from the server
+//     fetch('http://localhost:5000/orders')
+//       .then((res) => res.json())
+//       .then((data) => {
+//         if (data.success && Array.isArray(data.orders)) {
+//           setOrders(data.orders);
+//         } else {
+//           console.error('Failed to fetch orders or data is not an array.');
+//         }
+//       })
+//       .catch((error) => {
+//         console.error('Error fetching orders:', error);
+//       });
+//   }, []);
+//   console.log(orders)
+
+//   return (
+//     <div className=" mx-auto mt-8">
+//       <h2 className="text-2xl font-semibold mb-4">Order List</h2>
+//       <table className="min-w-full bg-white border border-gray-300">
+//         <thead>
+//           <tr>
+//             <th className="py-2 px-4 border-b">Order Code</th>
+//             <th className="py-2 px-4 border-b">Date and Time</th>
+//             <th className="py-2 px-4 border-b">Customer Name</th>
+//             <th className="py-2 px-4 border-b">Email</th>
+//             <th className="py-2 px-4 border-b">Total Amount</th>
+//             <th className="py-2 px-4 border-b">Status</th>
+//             <th className="py-2 px-4 border-b">Items</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {orders.map((order) => (
+//             <tr key={order._id}>
+//               <td className="py-2 px-4 border-b">{order.orderCode}</td>
+//               <td className="py-2 px-4 border-b">{order.products}</td>
+//               <td className="py-2 px-4 border-b">{order.deliveryInformation.name}</td>
+//               <td className="py-2 px-4 border-b">{order.user}</td>
+//               <td className="py-2 px-4 border-b">{order.totalPrice}</td>
+//               <td className="py-2 px-4 border-b">{order.fulfilled ? 'Fulfilled' : 'Unfulfilled'}</td>
+//               <td className="py-2 px-4 border-b">
+//                 {order.products.map((item) => (
+//                   <div key={item.productId}>
+//                     {item.name} - Quantity: {item.quantity}
+//                   </div>
+//                 ))}
+//               </td>
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// };
+
+// export default Orders;
 import React, { useEffect, useState } from 'react';
-import OrdersTable from './OrdersTable';
+import { Link } from 'react-router-dom';
 
-const Order = () => {
-  const [orders, setOrders] = useState([]);
+const Orders = () => {
+    const [orders, setOrders] = useState([]);
 
-  useEffect(() => {
-    // Fetch orders from your API or database
-    fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/orders') // Replace with the actual API endpoint
-      .then((res) => res.json())
-      .then((data) => {
-        setOrders(data);
-      });
-  }, []);
+    useEffect(() => {
+        // Fetch orders from the server
+        fetch('http://localhost:5000/orders')
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.success && Array.isArray(data.orders)) {
+                    setOrders(data.orders);
+                } else {
+                    console.error('Failed to fetch orders or data is not an array.');
+                }
+            })
+            .catch((error) => {
+                console.error('Error fetching orders:', error);
+            });
+    }, []);
+    console.log(orders)
+    return (
+        <div className=" mx-auto mt-8">
+            <div className='text-center'>
+                <h2 className="text-2xl font-semibold  mb-4">Order List</h2>
 
-  return (
-    <div className='w-9/12 mx-auto'>
-            <div >
-                <h2 className='text-xl text-teal-600 text-center font-bold my-6'>All Orders</h2>
             </div>
-            
-            <div>
-                <div className="">
-                    <table className="table w-full">
-                        <thead>
-                            <tr>
-                                <th> picture</th>
-                                <th>Client Name</th>
-                                <th>Client email</th>
-                                <th>Products</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                              
-                            </tr>
-                        </thead>
-                        <tbody>
-                    {
-                        orders.map(mytoy => <OrdersTable
-                            key={mytoy._id}
-                            mytoy={mytoy}
-                        >
 
-                        </OrdersTable>)
-                    }
-                    </tbody>
-                    </table>
+            <table className="min-w-full bg-white border border-gray-300">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th className="py-2 px-4 border-b">Order Code</th>
+                        <th className="py-2 px-4 border-b">Date and Time</th>
+                        <th className="py-2 px-4 border-b">Customer Name</th>
+                        <th className="py-2 px-4 border-b">Email</th>
+                        <th className="py-2 px-4 border-b">Total Amount</th>
+                        <th className="py-2 px-4 border-b">Status</th>
+                        <th className="py-2 px-4 border-b">Items</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {orders.map((order, index) => (
 
-                </div>
-            </div >
+                        <tr key={order._id}>
+                            {/*  */}
+                            <td>{index + 1}</td>
+                           <td  className="py-2 px-4 text-blue-700 border-b"> <Link to={`/orderedproductdetails/${order._id}`}>{order.orderCode}</Link></td>
+                            <td className="py-2 px-4 border-b ">{order.orderDate}</td>
+                            <td className="py-2 px-4 border-b">{order.deliveryInformation.name}</td>
+                            <td className="py-2 px-4 border-b">{order.user}</td>
+                            <td className="py-2 px-4 border-b">{order.totalPrice}</td>
+                            <td className="py-2 px-4 border-b">
+                                {order.fulfilled ? 'Fulfilled' : 'Unfulfilled'}
+                            </td>
+                            <td className="py-2 px-4 border-b">
+                                {order.products.map((item) => (
+                                    <div key={item.productId}>
+                                        {item.quantity[0]}
+                                    </div>
+                                ))}
+                            </td>
+                            
+
+
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
-  );
+    );
 };
 
-export default Order;
+export default Orders;
+

@@ -24,9 +24,9 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
                 </div>
-                <div className="drawer-side bg-orange-200">
+                <div className="drawer-side lg:bg-orange-200">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu  p-4 w-80">
+                    <ul className="menu  p-4 lg:w-80">
                         {
                             isAdmin &&
                             <>
@@ -36,12 +36,11 @@ const Dashboard = () => {
 
                                 <li>
                                     <Link to='/dashboard/addproducts' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
-                                        <FaDesktop /> Products  </Link>
+                                        <FaDesktop /> Upload Products  </Link>
                                 </li>
                                 <li>
-                                    <Link to='/dashboard/managecustomer' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
-                                        <FaDesktop /> Manage Users
-                                    </Link>
+                                    <Link to='/dashboard/ourproducts' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
+                                        <FaDesktop /> Our Products  </Link>
                                 </li>
                                 <li>
 
@@ -49,6 +48,12 @@ const Dashboard = () => {
                                         <FaDesktop /> Orders
                                     </Link>
                                 </li>
+                                <li>
+                                    <Link to='/dashboard/managecustomer' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
+                                        <FaDesktop /> Manage Users
+                                    </Link>
+                                </li>
+
                                 <li>
                                     <Link to='/dashboard/client' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
                                         <FaDesktop /> Clients
@@ -94,7 +99,7 @@ const Dashboard = () => {
                                         <FaCog /> Settings
                                     </Link>
                                 </li>
-                                
+
                                 <li>
                                     <Link to='/' className='text-cyan-800 text-lg bg-transparent hover:bg-red-400'>
                                         <FaDesktop /> Home
@@ -177,9 +182,9 @@ const Dashboard = () => {
                             isClient &&
 
                             <>
-                                <li><Link className='bg-red-700 text-center text-lg text-white'>CLients Dashboard</Link></li>
+                                <li><Link className='bg-red-700 text-center lg:text-lg sm:text-base text-white'>CLients Dashboard</Link></li>
                                 <div className="divider"></div>
-                                <li className='text-blue-800 text-md bg-transparent font-bold' >
+                                <li className='lg:text-blue-800 sm:text-white text-md bg-transparent font-bold' >
                                     <Link to="/dashboard/client"> Explore Clients Gallery<FaArrowCircleRight></FaArrowCircleRight></Link>
                                 </li>
                             </>

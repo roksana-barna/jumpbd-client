@@ -53,7 +53,7 @@ const Register4 = () => {
     setIsAwaitingApproval(true);
     // 
 
-    fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/subscriptions', {
+    fetch('http://localhost:5000/subscriptions', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -89,7 +89,7 @@ const Register4 = () => {
   //   const toys = { profilePhoto,nidBack,nidFront };
   //   console.log(toys);
   //   form.reset();
-  //   fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/subscriptions', {
+  //   fetch('http://localhost:5000/subscriptions', {
   //     method: 'POST',
   //     headers: {
   //       'content-type': 'application/json'

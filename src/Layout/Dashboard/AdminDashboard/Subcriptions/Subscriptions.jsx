@@ -7,12 +7,12 @@ const Subscriptions = () => {
 
     const [subscriptions, setSubcriptions] = useState([]);
     useEffect(() => {
-        fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/subscriptions')
+        fetch('http://localhost:5000/subscriptions')
             .then(res => res.json())
             .then(data => setSubcriptions(data))
     }, [])
     const handleMakeclient = user => {
-        fetch(`https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/subscriptions/client/${user._id}`, {
+        fetch(`http://localhost:5000/subscriptions/client/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -30,7 +30,7 @@ const Subscriptions = () => {
             })
     }
     const handleMakeDenied = user => {
-        fetch(`https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/subscriptions/denied/${user._id}`, {
+        fetch(`http://localhost:5000/subscriptions/denied/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -53,7 +53,7 @@ const Subscriptions = () => {
     console.log(subscriptions)
     return (
         <div>
-            <div className="w-full">
+            <div className="">
 
                 <div className="overflow-x-auto pt-9">
                     <table className="table table-zebra w-full ">
@@ -65,7 +65,6 @@ const Subscriptions = () => {
                                 {/* <th>Nid Front Part</th>  */}
                                 {/* <th>Nid Back Part</th>  */}
                                 <th>Website</th>
-                                <th>Meeting Confirmation</th>
                                 <th>Current Role</th>
                                 <th>Action</th>
                                 <th>Action</th>
@@ -82,11 +81,7 @@ const Subscriptions = () => {
                                         
                                         {user.website}
                                     </td>
-                                    <td>
-                                    
-                                    {user.meetingConfirmation}
-                                    
-                                    </td>
+                                   
                                     {/* <td>{user?.nidFrontPart}</td> */}
                                     {/* <td>{user?.nidFrontPart}</td> */}
                                     {/* <td>{user.isApproved}</td> */}

@@ -14,11 +14,12 @@ const AddToCart = () => {
 
 
   const addtocart = useLoaderData();
-  const { keyfeatures, price, description, category, name, productImages, quantity, rating } = addtocart;
+  const { keyfeatures, price, description, category,suggestprice, name, productImages, quantity } = addtocart;
   console.log(addtocart)
   console.log(productImages)
   const [isClient] = useClient();
   const [isAdmin] = useAdmin();
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   const handleSelect = (addtocart) => {
     console.log('addtocart')
@@ -31,13 +32,13 @@ const AddToCart = () => {
       price: addtocart?.price,
       productImages: addtocart?.productImages,
       instructor: addtocart?.instructor,
-      quantity: addtocart?.quantity
+      quantity: selectedQuantity,
 
 
     }
     console.log(selectedProduct)
 
-    fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/cartitem', {
+    fetch('http://localhost:5000/cartitem', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -64,7 +65,7 @@ const AddToCart = () => {
 
 
 
-
+  
 
   // const [quantity, setQuantity] = useState(1);
   // const [categoryQuantity, setCategoryQuantity] = useState(100); // Replace with the actual category quantity
@@ -76,10 +77,6 @@ const AddToCart = () => {
   //   }
   // };
 
-  // const increaseQuantity = () => {
-  //   setQuantity(quantity + 1);
-  //   setCategoryQuantity(categoryQuantity - 1); // Decrement category quantity
-  // };
   // const img1 = 'https://www.startech.com.bd/image/cache/catalog/smart-watch/havit/m9021-hd/m9021-hd-01-500x500.jpg';
   // const img2 = 'https://www.startech.com.bd/image/cache/catalog/smart-watch/havit/m9021-hd/m9021-hd-01-500x500.jpg';
   // const img3 = 'https://www.startech.com.bd/image/cache/catalog/smart-watch/havit/m9021-hd/m9021-hd-01-500x500.jpg';
@@ -88,8 +85,18 @@ const AddToCart = () => {
 
   // Sample product data
   console.log('addtocart')
+  
+  
+ 
+  const decreaseQuantity = () => {
+    if (selectedQuantity > 1) {
+      setSelectedQuantity(selectedQuantity - 1);
+    }
+  };
 
-
+  const increaseQuantity = () => {
+    setSelectedQuantity(selectedQuantity + 1);
+  };
 
   return (
     <div>
@@ -123,15 +130,20 @@ const AddToCart = () => {
               <h1 className="text-3xl font-semibold font-serif">{name}</h1>
 
               <div className="mt-4">
-                <ul>
-                  <li> key features: {keyfeatures}</li>
+               {
+                isClient && <li> key features: {keyfeatures}</li> 
+              
+               }
+                 {
+                isAdmin && <li> key features: {keyfeatures}</li> 
+              
+               }
 
-                </ul>
               </div>
               <div className="mt-4">
                 {/* <p className="text-sm text-gray-700"> Description:{description}</p> */}
               </div>
-              <p>Category Quantity: {quantity}</p>
+              <p>Available Quantity: {quantity}</p>
 
               {/* <div className="mt-4">
 
@@ -157,12 +169,43 @@ const AddToCart = () => {
         </div>
 
               </div> */}
+
+            {/* ... (your existing code) */}
+            <div className="mt-4">
+            <label className="text-sm font-semibold">Quantity: {selectedQuantity}</label>
+            <div className="flex items-center mt-2">
+              <button
+                className="px-3 py-2 border rounded text-gray-600 hover:text-gray-900 hover:border-gray-900"
+                onClick={decreaseQuantity}
+              >
+                -
+              </button>
+              <input
+                type="text"
+                className="w-10 text-center border mx-2"
+                value={selectedQuantity}
+                readOnly
+              />
+              <button
+                className="px-3 py-2 border rounded text-gray-600 hover:text-gray-900 hover:border-gray-900"
+                onClick={increaseQuantity}
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+
+
+
+
              
               <div className="text-lg text-gray-600 mt-2">
                 {isAdmin ? (
                   <>
-                    <span className="text-red-500">Price: {price}</span>
-                    <button onClick={() => handleSelect(addtocart)} className="bg-blue-500 hover:bg-blue-600 text-white rounded-full mt-4 p-2 w-full">
+                    <span className="text-red-500">Price: {price}</span> <br/>
+                    <span className="text-red-500"> Suggested Minimum Sell Price: {suggestprice}</span>
+                    <button className="bg-blue-500 hover:bg-blue-600 text-white rounded-full mt-4 p-2 w-full">
                       Add to Cart
                     </button>
 

@@ -11,7 +11,7 @@ const All = () => {
 
   useEffect(() => {
     // Fetch products from your backend API
-    fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/addproducts')
+    fetch('http://localhost:5000/addproducts')
       .then((response) => response.json())
       .then((data) => {
         setProducts(data);
@@ -42,12 +42,20 @@ const All = () => {
               <p className="text-gray-600 font-serif">Quantity: {product.quantity}</p>
               {
               isClient &&
-              <p className='font-serif'>Price: {product.price}</p>
+              <>
+              <p>Price: {product.price}</p>
+               <p> Suggest Minimum Price: {product.suggestprice}</p>
+               
+             </>
             }
 
             {
               isAdmin &&
+              <>
               <p>Price: {product.price}</p>
+               <p> Suggest Minimum Price: {product.suggestprice}</p>
+               
+             </>
             }
             </div>
             </Link>

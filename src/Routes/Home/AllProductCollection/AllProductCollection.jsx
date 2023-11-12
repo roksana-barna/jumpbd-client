@@ -11,7 +11,7 @@ const AllProductCollection = () => {
 
     useEffect(() => {
         // Fetch products from the backend when the component mounts
-        fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/addproducts')
+        fetch('http://localhost:5000/addproducts')
             .then((response) => response.json())
             .then((data) => {
                 setProducts(data);
@@ -95,7 +95,7 @@ export default AllProductCollection;
 
 //   useEffect(() => {
 //     // Fetch products from the backend when the component mounts
-//     fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/addproducts')
+//     fetch('http://localhost:5000/addproducts')
 //       .then((response) => response.json())
 //       .then((data) => {
 //         setProducts(data);

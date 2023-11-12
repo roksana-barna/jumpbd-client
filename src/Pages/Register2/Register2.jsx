@@ -14,7 +14,7 @@ const Register2 = () => {
       const toys = { subscriptionFee,couponCode };
       console.log(toys);
       form.reset();
-      fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/subscriptions', {
+      fetch('http://localhost:5000/subscriptions', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

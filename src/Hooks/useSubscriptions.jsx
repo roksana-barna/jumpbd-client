@@ -7,7 +7,7 @@ const useSubscriptions = () => {
     const { refetch, data: cart = [] } = useQuery({
         queryKey: ['subscriptions', user?.email],
         queryFn: async () => {
-            const res = await fetch(`https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/subscriptions?email=${user?.email}`)
+            const res = await fetch(`http://localhost:5000/subscriptions?email=${user?.email}`)
             return res.json();
         },
     })

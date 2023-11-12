@@ -232,13 +232,14 @@ const AddProduct = () => {
     formData.append('email', user?.email);
     formData.append('category', form.category.value);
     formData.append('price', form.price.value);
-    formData.append('rating', form.rating.value);
+    formData.append('suggestprice', form.suggestprice.value);
     formData.append('quantity', form.quantity.value);
     formData.append('keyfeatures', form.keyfeatures.value);
     formData.append('description', form.description.value);
+    // http://localhost:5000
 
     try {
-      const response = await fetch('https://dropzey-server-qm8su19xh-roksana-barna.vercel.app/addproducts', {
+      const response = await fetch('http://localhost:5000/addproducts', {
         method: 'POST',
         body: formData,
       });
@@ -432,11 +433,12 @@ const AddProduct = () => {
             <label htmlFor="price" className="block text-cyan-600 text-base font-bold mb-2">Price:</label>
             <input type="number" id="price" name="price" className="shadow appearance-none border rounded w-full py-2 px-3 text-cyan-600 leading-tight focus:outline-none focus:shadow-outline" placeholder=" Enter price" />
           </div>
-
           <div className="mb-4">
-            <label htmlFor="rating" className="block text-cyan-600 text-base font-bold mb-2">Rating:</label>
-            <input type="number" id="rating" name="rating" className="shadow appearance-none border rounded w-full py-2 px-3 text-cyan-600 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter rating" />
+            <label htmlFor="suggestprice" className="block text-cyan-600 text-base font-bold mb-2"> Suggest Minimum Sell Price:</label>
+            <input type="number" id="suggestprice" name="suggestprice" className="shadow appearance-none border rounded w-full py-2 px-3 text-cyan-600 leading-tight focus:outline-none focus:shadow-outline" placeholder=" Enter suggest price" />
           </div>
+
+        
 
           <div className="mb-4">
             <label htmlFor="quantity" className="block text-cyan-600 text-base font-bold mb-2">Available Quantity:</label>
