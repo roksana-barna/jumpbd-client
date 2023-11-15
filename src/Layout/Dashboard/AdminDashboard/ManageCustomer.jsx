@@ -9,13 +9,13 @@ const ManageCustomer = () => {
 
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://dropzey-server.vercel.app/users')
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [])
 
     // const handleMakeAdmin = user => {
-    //     fetch(`http://localhost:5000/users/admin/${user._id}`, {
+    //     fetch(`https://dropzey-server.vercel.app/users/admin/${user._id}`, {
     //         method: 'PATCH'
     //     })
     //         .then(res => res.json())
@@ -33,7 +33,7 @@ const ManageCustomer = () => {
     //         })
     // }
     const handleMakeInstructor = user => {
-        fetch(`http://localhost:5000/users/seller/${user._id}`, {
+        fetch(`https://dropzey-server.vercel.app/users/seller/${user._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

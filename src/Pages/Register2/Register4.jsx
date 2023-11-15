@@ -11,6 +11,7 @@ const Register4 = () => {
   // State for "Awaiting Approval" message
 
 
+
   useEffect(() => {
     const getData = JSON.parse(localStorage.getItem("def"));
     setOldData(getData);
@@ -37,6 +38,9 @@ const Register4 = () => {
     const data = JSON.parse(localStorage.getItem("def"));
 
     const email = localStorage.getItem("usr_email");
+    const getData1 = JSON.parse(localStorage.getItem("formDataFromRegister2"));
+
+
 
 
     // const email = JSON.parse(localStorage.getItem("email"));
@@ -44,6 +48,7 @@ const Register4 = () => {
     const processData = {
       ...getData,
       email,
+      ...getData1,
       subscription_fee: 2500,
       ...data,
       isApproved: 'pending',
@@ -53,7 +58,7 @@ const Register4 = () => {
     setIsAwaitingApproval(true);
     // 
 
-    fetch('http://localhost:5000/subscriptions', {
+    fetch('https://dropzey-server.vercel.app/subscriptions', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -89,7 +94,7 @@ const Register4 = () => {
   //   const toys = { profilePhoto,nidBack,nidFront };
   //   console.log(toys);
   //   form.reset();
-  //   fetch('http://localhost:5000/subscriptions', {
+  //   fetch('https://dropzey-server.vercel.app/subscriptions', {
   //     method: 'POST',
   //     headers: {
   //       'content-type': 'application/json'
@@ -171,22 +176,9 @@ const Register4 = () => {
                 )}
               </div> */}
 
-<div className="form-control">
-  <label className="label">
-    <span className="label-text text-gray-700">Meeting After Confirm Approved:</span>
-  </label>
-  <input
-    type="text"
-    {...register("meetingConfirmation")}
-    defaultValue={oldData?.meetingConfirmation}
-    name="meetingConfirmation"
-    placeholder="Meeting Confirmation"
-    className="input input-bordered mt-1 w-full text-gray-800"
-  />
-  {errors.meetingConfirmation && (
-    <span className="text-red-600 text-sm">Meeting Confirmation is required</span>
-  )}
-</div>
+  {/* BkashPayment component */}
+ 
+
 
             {/* <div className="mb-4">
     <label htmlFor="approvalAfterSeeInfo" className="block text-cyan-600 text-base font-bold mb-2">Approval After See All Profile Info:</label>

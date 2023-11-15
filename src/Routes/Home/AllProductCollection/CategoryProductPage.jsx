@@ -13,7 +13,7 @@ const CategoryProductPage = () => {
 
   useEffect(() => {
     // Fetch products from the backend and filter by the selected category
-    fetch('http://localhost:5000/addproducts')
+    fetch('https://dropzey-server.vercel.app/addproducts')
       .then((response) => response.json())
       .then((data) => {
         const filteredProducts = data.filter((product) => product.category === category);
@@ -70,7 +70,7 @@ const CategoryProductPage = () => {
 
             <Link to={`/addtocart/${product._id}`}>
               <figure className="pt-4 bg-white">
-              <img src={`http://localhost:5000/productImages/${product.productImages}`} alt={product.name} className="h-40 w-48" />
+              <img src={`https://dropzey-server.vercel.app/productImages/${product.productImages}`} alt={product.name} className="h-40 w-48" />
 
 
               </figure>

@@ -16,7 +16,6 @@ import Settings from './Layout/Dashboard/Settings/Settings.jsx'
 import AddProduct from './Components/AddProduct/AddProduct.jsx'
 import AllCollection from './Pages/AllCollection/AllCollection.jsx'
 import WomensFashion from './Pages/AllCollection/WomensFashion/WomensFashion.jsx'
-import Register2 from './Pages/Register2/Register2.jsx'
 import Register3 from './Pages/Register2/Register3.jsx'
 import Register4 from './Pages/Register2/Register4.jsx'
 import Register from './Pages/Register.jsx'
@@ -58,18 +57,18 @@ const router = createBrowserRouter([
       {
         path: '/addtocart/:id',
         element: <AddToCart></AddToCart>,
-        loader:({params})=>fetch(`http://localhost:5000/addtocart/${params.id}`)
+        loader:({params})=>fetch(`https://dropzey-server.vercel.app/addtocart/${params.id}`)
 
       },
       {
         path: "/update/:id",
         element: <Update></Update>,
-        loader: ({ params }) => fetch(`http://localhost:5000/update/${params.id}`)
+        loader: ({ params }) => fetch(`https://dropzey-server.vercel.app/update/${params.id}`)
       },
       {
         path: "/updateproduct/:id",
         element: <UpdateProduct></UpdateProduct>,
-        loader: ({ params }) => fetch(`http://localhost:5000/updateproduct/${params.id}`)
+        loader: ({ params }) => fetch(`https://dropzey-server.vercel.app/updateproduct/${params.id}`)
       },
       {
         path: '/product-category/:category',
@@ -82,7 +81,13 @@ const router = createBrowserRouter([
       {
         path: '/orderedproductdetails/:id',
         element: <OrderedProductDetails></OrderedProductDetails>,
-        loader:({params})=>fetch(`http://localhost:5000/orderedproductdetails/${params.id}`)
+        loader:({params})=>fetch(`https://dropzey-server.vercel.app/orderedproductdetails/${params.id}`)
+
+      },
+      {
+        path: '/clientpayment/:id',
+        element: <PaymentAccount></PaymentAccount>,
+        loader:({params})=>fetch(`https://dropzey-server.vercel.app/clientpayment/${params.id}`)
 
       },
 
@@ -90,6 +95,7 @@ const router = createBrowserRouter([
         path: '/register2',
         element: <Register2></Register2>
       },
+     
       {
         path: '/register3',
         element: <Register3></Register3>
@@ -193,6 +199,8 @@ import Update from './Components/Profile/Update.jsx'
 import AllAddedProducts from './Layout/Dashboard/AdminDashboard/AllAddedProducts.jsx'
 import UpdateProduct from './Layout/Dashboard/AdminDashboard/AllProductsTable/UpdateProduct.jsx'
 import OrderedProductDetails from './Layout/Dashboard/AdminDashboard/OrederedProductDEtails/OrderedProductDetails.jsx'
+import Register2 from './Pages/Register2/Register2.jsx'
+import PaymentAccount from './Layout/Dashboard/AdminDashboard/ClientPaymentAccount/PaymentAccount.jsx'
 
 const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root')).render(

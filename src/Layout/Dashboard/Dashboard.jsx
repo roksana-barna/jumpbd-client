@@ -24,58 +24,63 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
                 </div>
-                <div className="drawer-side lg:bg-orange-200">
-                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+                <div className="drawer-side lg:bg-orange-200 ">
+                    <label htmlFor="my-drawer-2" className="drawer-overlay "></label>
                     <ul className="menu  p-4 lg:w-80">
                         {
                             isAdmin &&
                             <>
-                                <li><Link className='bg-red-700 text-center text-white'>Admin Panel</Link></li>
+                                <li><Link className='bg-red-700 text-center font-serif text-white'>Admin Panel</Link></li>
                                 <div className="divider"></div>
 
 
                                 <li>
-                                    <Link to='/dashboard/addproducts' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
+                                    <Link to='/dashboard/addproducts' className='text-cyan-800   font-serif text-lg bg-transparent hover-bg-red-400'>
                                         <FaDesktop /> Upload Products  </Link>
                                 </li>
                                 <li>
-                                    <Link to='/dashboard/ourproducts' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
+                                    <Link to='/dashboard/ourproducts' className='text-cyan-800 font-serif text-lg bg-transparent hover-bg-red-400'>
                                         <FaDesktop /> Our Products  </Link>
                                 </li>
                                 <li>
 
-                                    <Link to='/dashboard/ordersforadmin' className='text-cyan-800 text-lg bg-transparent hover:bg-red-400'>
+                                    <Link to='/dashboard/ordersforadmin' className='text-cyan-800 font-serif text-lg bg-transparent hover:bg-red-400'>
                                         <FaDesktop /> Orders
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/dashboard/managecustomer' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
+                                    <Link to='/dashboard/managecustomer' className='text-cyan-800 font-serif text-lg bg-transparent hover-bg-red-400'>
                                         <FaDesktop /> Manage Users
                                     </Link>
                                 </li>
 
                                 <li>
-                                    <Link to='/dashboard/client' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
+                                    <Link to='/dashboard/client' className='text-cyan-800 font-serif text-lg bg-transparent hover-bg-red-400'>
                                         <FaDesktop /> Clients
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/dashboard/analytics' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
+                                    <Link to='/clientpayment' className='text-cyan-800 font-serif text-lg bg-transparent hover-bg-red-400'>
+                                        <FaDesktop /> Accounts
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to='/dashboard/analytics' className='text-cyan-800  font-serif text-lg bg-transparent hover-bg-red-400'>
                                         <FaDesktop /> Analytics
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/dashboard/marketing' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
+                                    <Link to='/dashboard/marketing' className='text-cyan-800 font-serif text-lg bg-transparent hover-bg-red-400'>
                                         <FaDesktop /> Marketing
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/dashboard/discount' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
+                                    <Link to='/dashboard/discount' className='text-cyan-800 font-serif text-lg bg-transparent hover-bg-red-400'>
                                         <FaDesktop /> Discount
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/dashboard/subscriptions' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
+                                    <Link to='/dashboard/subscriptions' className='text-cyan-800  text-lg bg-transparent hover-bg-red-400'>
                                         <FaShoppingCart></FaShoppingCart>Subcriptions
                                         <button className="btn">
                                             {/* <div className="badge badge-secondary">+{cart?.length ||0}</div> */}
@@ -87,21 +92,21 @@ const Dashboard = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/dashboard/api' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
+                                    <Link to='/dashboard/api' className='text-cyan-800 font-serif text-lg bg-transparent hover-bg-red-400'>
                                         <FaDesktop /> API
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/dashboard/finance' className='text-cyan-800 text-lg bg-transparent hover-bg-red-400'>
+                                    <Link to='/dashboard/finance' className='text-cyan-800 text-lg font-serif bg-transparent hover-bg-red-400'>
                                         <FaDesktop /> Finance
                                     </Link>
-                                    <Link to='/dashboard/settings' className='text-cyan-800 text-lg bg-transparent hover:bg-red-400'>
+                                    <Link to='/dashboard/settings' className='text-cyan-800 font-serif text-lg bg-transparent hover:bg-red-400'>
                                         <FaCog /> Settings
                                     </Link>
                                 </li>
 
                                 <li>
-                                    <Link to='/' className='text-cyan-800 text-lg bg-transparent hover:bg-red-400'>
+                                    <Link to='/' className='text-cyan-800 text-lg bg-transparent font-serif hover:bg-red-400'>
                                         <FaDesktop /> Home
                                     </Link>
                                 </li>
@@ -184,7 +189,7 @@ const Dashboard = () => {
                             <>
                                 <li><Link className='bg-red-700 text-center lg:text-lg sm:text-base text-white'>CLients Dashboard</Link></li>
                                 <div className="divider"></div>
-                                <li className='lg:text-blue-800 sm:text-white text-md bg-transparent font-bold' >
+                                <li className='lg:text-blue-800 sm:text-white text-lg bg-transparent font-bold' >
                                     <Link to="/dashboard/client"> Explore Clients Gallery<FaArrowCircleRight></FaArrowCircleRight></Link>
                                 </li>
                             </>

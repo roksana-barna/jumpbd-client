@@ -11,7 +11,7 @@ const AllProductCollection = () => {
 
     useEffect(() => {
         // Fetch products from the backend when the component mounts
-        fetch('http://localhost:5000/addproducts')
+        fetch('https://dropzey-server.vercel.app/addproducts')
             .then((response) => response.json())
             .then((data) => {
                 setProducts(data);
@@ -95,7 +95,7 @@ export default AllProductCollection;
 
 //   useEffect(() => {
 //     // Fetch products from the backend when the component mounts
-//     fetch('http://localhost:5000/addproducts')
+//     fetch('https://dropzey-server.vercel.app/addproducts')
 //       .then((response) => response.json())
 //       .then((data) => {
 //         setProducts(data);

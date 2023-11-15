@@ -10,8 +10,8 @@
 //   return (
 //     <div>
 //       <div className='review-item'>
-//         {/* <img src={`http://localhost:5000/productImages/${productImages}`} alt="" /> */}
-//         <img src={`http://localhost:5000/productImages/${productImages}`} alt={name} />
+//         {/* <img src={`https://dropzey-server.vercel.app/productImages/${productImages}`} alt="" /> */}
+//         <img src={`https://dropzey-server.vercel.app/productImages/${productImages}`} alt={name} />
 
 //         <div className='review-details'>
 //           <p className='product-title'>{name}</p>
@@ -49,7 +49,7 @@ const MyOrders = ({ mytoy, handleDelete,onQuantityChange  }) => {
   return (
     <div>
       <div className='review-item'>
-        <img src={`http://localhost:5000/productImages/${productImages}`} alt={name} />
+        <img src={`https://dropzey-server.vercel.app/productImages/${productImages}`} alt={name} />
 
         <div className='review-details'>
           <p className='product-title'>{name}</p>

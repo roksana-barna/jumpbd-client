@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const Register3 = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [oldData, setOldData]= useState({});
+
     useEffect(() => {
         const getData = JSON.parse(localStorage.getItem("abc"));
         setOldData(getData);

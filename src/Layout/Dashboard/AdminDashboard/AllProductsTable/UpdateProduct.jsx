@@ -28,7 +28,7 @@ const UpdateProduct = () => {
     
         console.log(updatedProduct);
     
-        fetch(`http://localhost:5000/updateproduct/${allproduct._id}`, {
+        fetch(`https://dropzey-server.vercel.app/updateproduct/${allproduct._id}`, {
           method: 'PUT',
           headers: {
             'content-type': 'application/json',

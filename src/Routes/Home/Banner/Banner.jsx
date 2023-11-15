@@ -35,7 +35,7 @@ const Banner = () => {
         </Carousel>
         <div>
             <div  className=''>
-            <img className='h-[250px]' src={img3} />
+            <img className='md:h-[250px] ' src={img3} />
 
             </div>
             <div className='mt-4 m-2 '>

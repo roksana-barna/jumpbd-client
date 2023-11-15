@@ -5,7 +5,7 @@ const WomensFashion = () => {
 
     console.log(setWomensFashion)
     useEffect(() => {
-        fetch('http://localhost:5000/womensfashion')
+        fetch('https://dropzey-server.vercel.app/womensfashion')
             .then(res => res.json())
             .then(data => setWomensFashion(data))
     }, )

@@ -3,9 +3,9 @@ import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer className=" text-black py-6">
+        <footer className=" text-blackpy-6">
             <div className="container   mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     <div className="footer-section">
                         <h3 className="text-xl font-semibold mb-3">Stores Location</h3>
                         <ul className="text-sm">
@@ -90,7 +90,7 @@ const Footer = () => {
                 <a href="#" className="text-black hover:text-red-500">
                     Information        </a> <span className="mx-2">|</span>
                 <a href="#" className="text-black hover:text-red-500">
-                    Copyright © 2023 <span className='text-cyan-600'>Dropzey </span>       </a>
+                    Copyright © 2023 <span className='text-cyan-600'>Jump BD</span>       </a>
             </div>
             <div className="mt-8 text-center text-sm">
             </div>

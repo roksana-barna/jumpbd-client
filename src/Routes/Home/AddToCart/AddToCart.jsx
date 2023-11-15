@@ -38,7 +38,7 @@ const AddToCart = () => {
     }
     console.log(selectedProduct)
 
-    fetch('http://localhost:5000/cartitem', {
+    fetch('https://dropzey-server.vercel.app/cartitem', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -104,7 +104,7 @@ const AddToCart = () => {
         <div className="md:w-96">
           <Carousel className='' >
             <div className=''>
-              <img className='' src={`http://localhost:5000/productImages/${addtocart.productImages}`} alt={addtocart.name} />
+              <img className='' src={`https://dropzey-server.vercel.app/productImages/${addtocart.productImages}`} alt={addtocart.name} />
             </div>
 
             {/* <div>

@@ -7,7 +7,7 @@ const Profile = () => {
   const [myProfile, setMyProfile] = useState([])
 
   useEffect(() => {
-    fetch(`http://localhost:5000/subscriptions/${user?.email}`)
+    fetch(`https://dropzey-server.vercel.app/subscriptions/${user?.email}`)
       .then(res => res.json())
       .then(data => {
         setMyProfile(data)

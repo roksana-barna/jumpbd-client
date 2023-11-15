@@ -14,7 +14,7 @@ const OrderDetails = () => {
   const [selectedProducts, setSelectedProducts] = useState({}); // State for selected products and quantities
 
   useEffect(() => {
-    fetch(`http://localhost:5000/cartitem/${user.email}/${sortByPrice}`)
+    fetch(`https://dropzey-server.vercel.app/cartitem/${user.email}/${sortByPrice}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
@@ -39,7 +39,7 @@ const OrderDetails = () => {
   const handleDelete = (id) => {
     const proceed = confirm('Are you sure you want to delete?');
     if (proceed) {
-      fetch(`http://localhost:5000/cartitem/${id}`, {
+      fetch(`https://dropzey-server.vercel.app/cartitem/${id}`, {
         method: 'DELETE',
       })
         .then((res) => res.json())
@@ -99,12 +99,14 @@ const OrderDetails = () => {
     shippingMethod: shippingMethod,
     shippingCost: shippingCost,
     totalBDT: totalBDT.toFixed(2),
-    orderDate: currentDate.toISOString(), // Convert to a string for easy storage and retrieval
+    orderDate: currentDate.toISOString(),
+    fulfillmentStatus: 'pending',
+     // Convert to a string for easy storage and retrieval
 
   };
 console.log(orderData)
     // Send the order data to the server
-    fetch('http://localhost:5000/orders', {
+    fetch('https://dropzey-server.vercel.app/orders', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -135,7 +137,7 @@ console.log(orderData)
 
   const updateProductQuantity = (productId, newQuantity) => {
     // Send a request to update the product's quantity on the server
-    fetch(`http://localhost:5000/products/${productId}`, {
+    fetch(`https://dropzey-server.vercel.app/products/${productId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -263,7 +265,7 @@ const handleProductQuantityChange = (id, quantity) => {
         <p>BDT:{totalPrice}</p>
       </div>
       <div className="flex justify-between">
-        <p className="text-gray-500">Shipping</p>
+        <p className="text-gray-500">Delivery Charge</p>
         <p>{shippingCost.toFixed(2)}</p>
       </div>
       <div className="border-t my-4"></div>
@@ -383,10 +385,9 @@ const handleProductQuantityChange = (id, quantity) => {
       </div>
 
       {/* Payment Section */}
-      <div className="mt-8 p-6 bg-white rounded-lg shadow-lg payment-information">
+      {/* <div className="mt-8 p-6 bg-white rounded-lg shadow-lg payment-information">
         <h2 className="text-xl text-teal-600 text-center font-bold my-6">Payment Information</h2>
-        {/* Add your payment fields here */}
-      </div>
+      </div> */}
     </div>
 
 
@@ -394,12 +395,14 @@ const handleProductQuantityChange = (id, quantity) => {
 
     
 
-      <button
+     <div className='text-center'>
+     <button
         className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover-bg-blue-600"
         onClick={handleConfirmOrder}
       >
         Confirm Order
       </button>
+     </div>
     </div>
   );
 };

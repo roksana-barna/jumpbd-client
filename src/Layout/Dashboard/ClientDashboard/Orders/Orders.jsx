@@ -5,7 +5,7 @@
 
 //   useEffect(() => {
 //     // Fetch orders from the server
-//     fetch('http://localhost:5000/orders')
+//     fetch('https://dropzey-server.vercel.app/orders')
 //       .then((res) => res.json())
 //       .then((data) => {
 //         if (data.success && Array.isArray(data.orders)) {
@@ -68,7 +68,7 @@ const Orders = () => {
 
     useEffect(() => {
         // Fetch orders from the server
-        fetch('http://localhost:5000/orders')
+        fetch('https://dropzey-server.vercel.app/orders')
             .then((res) => res.json())
             .then((data) => {
                 if (data.success && Array.isArray(data.orders)) {
@@ -85,7 +85,7 @@ const Orders = () => {
     return (
         <div className=" mx-auto mt-8">
             <div className='text-center'>
-                <h2 className="text-2xl font-semibold  mb-4">Order List</h2>
+                <h2 className="text-2xl font-semibold  font-serif mb-8">Order List</h2>
 
             </div>
 
@@ -93,13 +93,14 @@ const Orders = () => {
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th className="py-2 px-4 border-b">Order Code</th>
-                        <th className="py-2 px-4 border-b">Date and Time</th>
-                        <th className="py-2 px-4 border-b">Customer Name</th>
-                        <th className="py-2 px-4 border-b">Email</th>
-                        <th className="py-2 px-4 border-b">Total Amount</th>
-                        <th className="py-2 px-4 border-b">Status</th>
-                        <th className="py-2 px-4 border-b">Items</th>
+                        <th className="py-2 px-4 border-b font-serif">Order Code</th>
+                        <th className="py-2 px-4 border-b font-serif">Date</th>
+                        <th className="py-2 px-4 border-b font-serif">Customer Name</th>
+                        <th className="py-2 px-4 border-b font-serif">Email</th>
+                        <th className="py-2 px-4 border-b font-serif">Total Amount</th>
+                        <th className="py-2 px-4 border-b font-serif">Payment Status</th>
+                        <th className="py-2 px-4 border-b font-serif">Status</th>
+                        <th  className="py-2 px-4 border-b font-serif">Items</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -113,8 +114,9 @@ const Orders = () => {
                             <td className="py-2 px-4 border-b">{order.deliveryInformation.name}</td>
                             <td className="py-2 px-4 border-b">{order.user}</td>
                             <td className="py-2 px-4 border-b">{order.totalPrice}</td>
+                            <td  className='text-orange-500'> <Link to={`/clientpayment/${order._id}`}>Payment Pending</Link></td>
                             <td className="py-2 px-4 border-b">
-                                {order.fulfilled ? 'Fulfilled' : 'Unfulfilled'}
+                                {order.fulfillmentStatus} 
                             </td>
                             <td className="py-2 px-4 border-b">
                                 {order.products.map((item) => (

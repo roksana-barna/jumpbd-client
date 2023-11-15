@@ -11,7 +11,7 @@ const All = () => {
 
   useEffect(() => {
     // Fetch products from your backend API
-    fetch('http://localhost:5000/addproducts')
+    fetch('https://dropzey-server.vercel.app/addproducts')
       .then((response) => response.json())
       .then((data) => {
         setProducts(data);
@@ -33,7 +33,7 @@ const All = () => {
            <Link to={`/addtocart/${product._id}`}>
 
             <img
-               src={`http://localhost:5000/productImages/${product.productImages}`} alt={product.name} 
+               src={`https://dropzey-server.vercel.app/productImages/${product.productImages}`} alt={product.name} 
 
               className="w-full h-40 object-cover"
             />

@@ -14,7 +14,7 @@ const AllProductsTable = ({ allproduct, handleDelete,index }) => {
                 <div className="flex">
                     <div className="avatar">
                         <div className="mask mask-rounded w-10 h-10">
-                            <img src={`http://localhost:5000/productImages/${productImages}`} alt={name} />
+                            <img src={`https://dropzey-server.vercel.app/productImages/${productImages}`} alt={name} />
                         </div>
                     </div>
                 </div>

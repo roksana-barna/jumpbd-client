@@ -236,10 +236,10 @@ const AddProduct = () => {
     formData.append('quantity', form.quantity.value);
     formData.append('keyfeatures', form.keyfeatures.value);
     formData.append('description', form.description.value);
-    // http://localhost:5000
+    // https://dropzey-server.vercel.app
 
     try {
-      const response = await fetch('http://localhost:5000/addproducts', {
+      const response = await fetch('https://dropzey-server.vercel.app/addproducts', {
         method: 'POST',
         body: formData,
       });

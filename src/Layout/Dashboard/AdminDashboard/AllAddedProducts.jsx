@@ -7,7 +7,7 @@ const AllAddedProducts = () => {
 
     useEffect(() => {
         // Fetch products from your backend API
-        fetch('http://localhost:5000/addproducts')
+        fetch('https://dropzey-server.vercel.app/addproducts')
             .then((response) => response.json())
             .then((data) => {
                 setProducts(data);
@@ -22,7 +22,7 @@ const AllAddedProducts = () => {
         const text = form.search.value;
         console.log(text);
         if (text) {
-            fetch(`http://localhost:5000/productNameSearch/${text}`)
+            fetch(`https://dropzey-server.vercel.app/productNameSearch/${text}`)
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);
@@ -36,7 +36,7 @@ const AllAddedProducts = () => {
     const handleDelete = id => {
         const proceed = confirm("Are you want to delete?");
         if (proceed) {
-            fetch(`http://localhost:5000/addproducts/${id}`, {
+            fetch(`https://dropzey-server.vercel.app/addproducts/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
