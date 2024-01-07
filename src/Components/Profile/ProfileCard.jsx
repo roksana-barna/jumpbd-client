@@ -26,7 +26,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ProfileCard = ({ profile }) => {
+const ProfileCard = ({ profile,handleDelete }) => {
   const {
     businessName,
     nidNumber,
@@ -102,6 +102,8 @@ const ProfileCard = ({ profile }) => {
         </div>
       </div>
       <Link to={`/update/${_id}`}><button className="bg-blue-500 text-white rounded p-2 mt-2">Edit Profile</button> </Link>
+      <Link><button onClick={() => handleDelete(_id)} className="btn btn-circle btn-outline bg-red-400">X</button></Link>
+
     </div>
   );
 };

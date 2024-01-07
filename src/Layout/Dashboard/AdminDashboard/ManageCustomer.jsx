@@ -52,7 +52,24 @@ const ManageCustomer = () => {
 
     }
     // console.log(users)
+    const handleDelete = id => {
+        const proceed = confirm("Are you want to delete?");
+        if (proceed) {
+            fetch(`https://dropzey-server.vercel.app/users/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        alert('deleted successfully')
+                        const remaining = users.filter(mytoy => mytoy._id !== id)
+                        setUsers(remaining)
+                    }
+                })
 
+        }
+    }
 
     return (
 
@@ -92,6 +109,9 @@ const ManageCustomer = () => {
                                 >Make Admin</button></td> */}
                                 <td>  <button onClick={() => handleMakeInstructor(user)} className="btn  bg-red-400  text-white"
                                     disabled={user.role === 'seller'}>Make Seller</button></td>
+                                                            <td><button onClick={() => handleDelete(user._id)} className="btn btn-circle btn-outline bg-red-400">X</button>
+                                                            </td>
+
 
                             </tr>)
 

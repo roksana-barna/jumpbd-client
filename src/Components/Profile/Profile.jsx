@@ -16,13 +16,36 @@ const Profile = () => {
   }, [user]);
 
 
+  const handleDelete = id => {
+    const proceed = confirm("Are you want to delete?");
+    if (proceed) {
+        fetch(`https://dropzey-server.vercel.app/subscriptions/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    alert('deleted successfully')
+                    const remaining = myProfile.filter(mytoy => mytoy._id !== id)
+                    setMyProfile(remaining)
+                }
+            })
+
+    }
+}
+
+
   return (
     <div>
      
        {
         myProfile.length > 0 && (
           <ProfileCard
-            profile={myProfile[0]} // Assuming you want to display the first profile in the array
+            profile={myProfile[0]} 
+            handleDelete={handleDelete}
+
+            // Assuming you want to display the first profile in the array
           />
         )
       }
