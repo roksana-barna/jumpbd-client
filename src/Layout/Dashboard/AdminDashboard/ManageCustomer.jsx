@@ -84,7 +84,7 @@ const ManageCustomer = () => {
                             <th> Current Role</th>
                             <th>Action</th>
                             {/* <th>Action</th> */}
-                            {/* <th>Name</th> */}
+                            <th>Delete</th>
 
                         </tr>
                     </thead>

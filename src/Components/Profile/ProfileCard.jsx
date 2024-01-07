@@ -102,7 +102,7 @@ const ProfileCard = ({ profile,handleDelete }) => {
         </div>
       </div>
       <Link to={`/update/${_id}`}><button className="bg-blue-500 text-white rounded p-2 mt-2">Edit Profile</button> </Link>
-      <Link><button onClick={() => handleDelete(_id)} className="btn btn-circle btn-outline bg-red-400">X</button></Link>
+      <Link><button onClick={() => handleDelete(_id)} className="btn  text-white bg-red-400">Delete</button></Link>
 
     </div>
   );

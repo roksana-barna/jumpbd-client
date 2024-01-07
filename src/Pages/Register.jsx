@@ -122,13 +122,13 @@ const Register = () => {
 
                 {/*  */}
               </div>
-              {/* <div className="form-control">
+              <div className="form-control">
                                 <label className="label">
                                      <span className="label-text">Photo URL</span>
                                 </label>
                                  <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
                                  {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
-                           </div> */}
+                           </div>
 
               {/* <div className="form-control">
                                 <label className="label">
